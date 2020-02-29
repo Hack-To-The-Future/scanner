@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "scanner"
+version = "0.1.0"
+description = ""
+authors = ["Nicholas Martin <nicholas.martin@tharsus.co.uk>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+Django = "^3.0.3"
+numpy = "^1.18.1"
+Pillow = "^7.0.0"
+tensorflow = "2.1.0rc0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
