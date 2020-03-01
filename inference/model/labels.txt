@@ -1,0 +1,4 @@
+0 None
+1 Post-it Notes
+2 Scissors
+3 Key

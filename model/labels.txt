@@ -1,3 +1,0 @@
-0 Hearts
-1 Scissors
-2 None

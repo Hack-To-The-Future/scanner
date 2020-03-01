@@ -9,7 +9,11 @@ python = "^3.7"
 Django = "^3.0.3"
 numpy = "^1.18.1"
 Pillow = "^7.0.0"
-tensorflow = "2.1.0rc0"
+picamera = "^1.13"
+channels = "^2.4.0"
+websocket_client = "^0.57.0"
+channels_redis = "^2.4.2"
+
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
