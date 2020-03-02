@@ -23,7 +23,7 @@ class Inference(object):
         self.readlabels()
         self.model = tensorflow.keras.models.load_model('model/keras_model.h5')
         self.data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
-        self.ws = create_connection("ws://0.0.0.0:8000/ws", sslopt={"check_hostname": False})
+        self.ws = create_connection("ws://0.0.0.0:8000/ws")
 
 
     def readlabels(self):
@@ -69,13 +69,26 @@ class Inference(object):
                 label = self.labels[int(np.argmax(prediction))]
             
             now = time.time()
-            if label is not None and int(now - self.label_last_seen[label]) > 5:
-                print(label)
+            if label is not None and int(now - self.label_last_seen[label]) > 3:
                 self.item_count[label] += 1
                 self.label_last_seen[label] = now
-                self.ws.send(json.dumps({
-                    "prediction": self.item_count
-                }))
+
+                data = []
+                for item, count in self.item_count.items():
+                    data.append({
+                        'item': item,
+                        'count': count
+                    })
+
+                try:
+                    self.ws.send(json.dumps({
+                        "prediction": data
+                    }))
+                except:
+                    self.ws = create_connection("ws://0.0.0.0:8000/ws")
+                    self.ws.send(json.dumps({
+                        "prediction": data
+                    }))
 
 
 if __name__ == '__main__':

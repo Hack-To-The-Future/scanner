@@ -13,9 +13,30 @@
     <title>Part Scanner</title>
 </head>
 <body>
-    <h1>
-        WS Test
-    </h1>
+    <div id="app">
+        <div class="container pt-3">
+            <div class="row">
+                <img src="{% static "inference/tharsus_logo.png" %}" class="img-fluid" alt="Tharsus Logo">
+            </div>
+            <div class="row pt-3">
+                <div class="col-6 offset-3">
+                    <p>
+                        Scan and item past the camera to keep track of it:
+                    </p>
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col-4 offset-3">
+                    <ul class="list-group">
+                        <li v-for="item in items" class="list-group-item d-flex justify-content-between align-items-center">
+                            [[item.item]]<span class="badge badge-primary badge-pill">[[item.count]]</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </body>
 <script src="{% static "inference/jquery.min.js" %}"></script>
 <script src="{% static "inference/popper.min.js" %}"></script>

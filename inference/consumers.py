@@ -35,3 +35,4 @@ class InferenceConsumer(WebsocketConsumer):
     def prediction(self, event):
         # Send message to WebSocket
         self.send(text_data=event['json'])
+

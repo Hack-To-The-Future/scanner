@@ -1,0 +1,12 @@
+[Unit]
+Description=machine learning item scanner.
+
+[Service]
+Type=simple
+Restart=always
+User=pi
+WorkingDirectory=/home/pi/dev/scanner/
+ExecStart=/home/pi/dev/scanner/run_server.sh
+
+[Install]
+WantedBy=multi-user.target
